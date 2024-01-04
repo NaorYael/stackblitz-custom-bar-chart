@@ -1,0 +1,14 @@
+<div class="box">
+  <div class="bar-list">
+    <div class="bar-wrapper" *ngFor="let bar of data; let i = index">
+      <div class="bar" (click)="onBarChartClick(i)">
+        <div class="content"
+             [ngClass]="currentIndex === i ? 'highlighted' : '' "
+             [matTooltip]="bar.tooltip"
+             [matTooltipPosition]="tooltipPosition"
+             [style.height]="(bar.value / maxBarValue) * 100 + '%'">{{ bar.value }}</div>
+      </div>
+      <div class="label">{{bar.xAxisLabel}}</div>
+    </div>
+  </div>
+</div>
